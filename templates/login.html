@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block css %}
+<head>
+    <style>
+        .abcd{
+            color: green;
+        }
+    </style>
+</head>
+{% endblock %}
+
+{% block body %}
+<div class="login-register-area pt-100px pb-100px">
+    <div class="container">
+        <div class="row">
+            {% for m in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{m}}
+                </div>
+            {% endfor %}
+            <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                <div class="login-register-wrapper"style="color:#8E2C2C;">
+                    <div class="login-register-tab-list nav">
+                        <a class="active"  data-bs-toggle="tab">
+                            <h4 style="color:#1c6052">Sign In </h4>
+                        </a>
+                       
+                    </div>
+                <div class="login-register-wrapper">
+                    <div class="login-form-container">
+                        <div class="login-register-form">
+                            <form action="{% url 'login' %}" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="username" placeholder="Username" required/>
+                                <input type="password" name="password" placeholder="Password" required/>
+                                <div class="button-box">
+                                    <div class="login-toggle-btn">
+                                        <input type="checkbox" />
+                                        <a class="flote-none"   href="javascript:void(0)">Remember me</a>
+                                        <a href="{% url 'forget' %}"style="color:#1c6052;">Forgot Password?</a>
+                                    </div>
+                                    <button type="submit"style="background-color:#1c6052;"><span>Login</span></button>
+                                    <a href="{% url 'register' %}"style="color:#1c6052;"><u>Forget to Sign Up?</u></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

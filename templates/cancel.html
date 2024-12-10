@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="contact-area"style="background-color:#3eb48e">
+    <div class="container"style="background-color:#3eb48e;">
+        <div class="contact-wrapper"style="background-color:#3eb48e;">
+            <div class="row"style="background-color:#3eb48e;">
+                <div class="col-12"style="background-color:#3eb48e;">
+                    <div class="contact-form"style="background-color:#3eb48e;">
+                        <div class="contact-title mb-30"style="background-color:#3eb48e;">
+                            <h2 class="title">Are You Sure To Cancel Order ? </h2>
+                        </div>
+                        <form class="contact-form-style"   action="/Cancel/" method="post" onsubmit="return redirectToDonePage(done)">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input name="name" placeholder="Name*" type="text"  required/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input name="email" placeholder="Email*" type="email" required/>
+                                </div>
+                                
+                                <div class="billing-select mb-4">
+                                    <label name="subject" >Confirm that Do You Want to Cancel Your Order Or Not </label>
+                                    <select name = "country">
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                        <option>Not Sure </option>
+                                        <option>Placed Wrong Order</option>
+                                        <option>find More cheaper then this </option>
+                                        
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <textarea name="message" placeholder="Your Message*"></textarea>
+                                    <button class="btn btn-primary" style="background-color:#1c6052" onclick="submit">Send Response</button><br>
+                                    
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+{% endblock %}

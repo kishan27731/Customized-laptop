@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="post" action="{% url 'place_order' %}">
+    {% csrf_token %}
+<div class="checkout-area pt-100px pb-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="billing-info-wrap">
+                    <h3  style="color:#1c6052">Billing Details</h3>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">First Name</label>
+                                <input type="text" value="{{user.first_name}}" name="firstname" /readonly>
+                                <input type="text" value="{{order_id}}" name="order_id" hidden />
+                                <input type="text" value="{{payment}}" name="payment" hidden />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">Last Name</label>
+                                <input type="text" value="{{user.last_name}}" name="lastname"  /readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                            <div class="billing-select mb-4">
+                                <label style="color:#1c6052">Country</label>
+                                <select name="country">
+                                    <option>Select a country</option>
+                                    <option>India</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">Street Address</label>
+                                <input class="billing-address" placeholder="House number and street name" type="text" name="address"/>
+                                <input placeholder="Apartment, suite, unit etc." type="text"name="address" />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">Town / City</label>
+                                <input type="text" name="city" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">State</label>
+                                <input type="text" name="state"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">Postcode / ZIP</label>
+                                <input type="text" name="postcode" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">Phone</label>
+                                <input type="tel" name="phone" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-4">
+                                <label style="color:#1c6052">Email Address</label>
+                                <input type="text" value="{{user.email}}" name="email" readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-5 mt-md-30px mt-lm-30px "  style="background-color:#3eb48e">
+                <div class="your-order-area"  style="background-color:#3eb48e">
+                    <h3  style="color:#1c6052">My order</h3>
+                    <div class="your-order-wrap gray-bg-4"  style="background-color:#3eb48e">
+                        <div class="your-order-product-info"  style="background-color:#3eb48e">
+                            <div class="your-order-top">
+                                <ul>
+                                    <li style="color:#1c6052">Product</li>
+                                    <li style="color:#1c6052">Total</li>
+                                </ul>
+                            </div>
+                            <div class="your-order-middle">
+                                <ul>
+                                    {% for key,value in request.session.cart.items %}
+                                    <li style="color:#1c6052"><span class="order-middle-left">{{value.name | truncatewords:2}} x {{value.quantity}}</span> <span
+                                        class="order-price" style="color:#1c6052">₹{{value.price}}</span></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="your-order-bottom">
+                                <ul>
+                                    <li class="your-order-shipping" style="color:#1c6052">Shipping</li>
+                                    <li style="color:#1c6052">Free shipping</li>
+                                </ul>
+                            </div>
+                            <div class="your-order-total">
+                                <ul>
+                                    <li class="order-total" style="color:#1c6052">Total</li>
+                                    <li style="color:#1c6052" style="color:#1c6052"><input  style="color:#1c6052"value=" ₹{{cart_total_amount}}" name="amount" readonly></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="payment-method"  style="color:#1c6052">
+                            <div class="payment-accordion element-mrg" style="color:#1c6052">
+                                <div id="faq" class="panel-group" style="color:#1c6052">
+                                    
+                                    <div class="panel panel-default single-my-account m-0" style="color:#1c6052">
+                                        <div class="panel-heading my-account-title" style="color:#1c6052">
+                                            <h4 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-2" aria-expanded="false" class="collapsed" style="color:#1c6052">Cash on delivery</a></h4>
+                                        </div>
+                                        <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq" style="color:#1c6052">
+                                            <div class="panel-body" style="color:#1c6052">
+                                                <p style="color:darkblack ">Dear User,
+
+                                                    We regret to inform you that the service you are trying to access is currently unavailable. Our team is working diligently to resolve the issue and restore the service as soon as possible. </p>
+                                            </div>
+                                        </div>
+                                   
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Place-order mt-25" >
+                        <a class="btn-hover" href="{% url 'place_order' %}" style="background-color:#1c6052"><button type="submit"class="text-light" >Online Payment </button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+{% endblock %}

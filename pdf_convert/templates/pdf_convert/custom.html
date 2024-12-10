@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custome Report</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% csrf_token %}
+    <h1>Products Report</h1>
+    <h2>From {{ start_date }} to {{ end_date }}</h2>
+    {% for product in products %}
+        <p>
+            <strong>Product Name:</strong> {{ product.name }}<br>
+            <strong>Description:</strong> {{ product.description }}<br>
+            <strong>Price:</strong> {{ product.price }}<br>
+            <strong>Date:</strong> {{ product.date }}
+        </p>
+    {% empty %}
+        <p>No products found in this date range.</p>
+    {% endfor %}
+</body>
+</html>

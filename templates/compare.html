@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block body %}
+<html> 
+    <style>
+        
+        .table-responsive {
+            width: 80%;
+            margin: 2em auto;
+            box-shadow: 0 0 1em rgba(2, 2, 2,2);
+            overflow: hidden;
+            border-radius: 4px;
+            background: #3eb48e;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 1em;
+            border-bottom: 2px solid #3eb48e;
+        }
+        th {
+            background-color:#3eb48e;
+        }
+          .single-link {
+              border-radius: 12px;
+              transition: background-color 0.3s ease;
+             
+              
+          }
+      
+          .single-link:hover {
+              background-color: #0a4033; 
+              box-shadow: 0 0 1em rgba(2, 2, 2,2);
+          }
+     
+    </style>
+</html>
+<div class="table-responsive">
+    <table class="table table-striped text-successtable-border border-light">
+      <thead class="border-light">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"><strong>Affordable </strong></th>
+          <th scope="col"><strong>Gaming</strong></th>
+          <th scope="col"><strong>Business</strong></th>
+          <th scope="col"><strong>Proffesional</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Storage</th>
+          <td> 512GB - 1TB(HDD)</td>
+          <td> 512GB - 1TB(SSD)</td>
+          <td> 512GB - 1TB(SSD)</td>
+          <td> 512GB - 1TB(SSD)</td>
+          
+        </tr>
+        <tr>
+            <th scope="row">RAM</th>
+            <td> 4 GB (DDR 4)</td>
+            <td> 16 GB (DDR 4)</td>
+            <td> 8  GB (DDR 4)</td>
+            <td> 12 GB (DDR 4)</td>
+          </tr>
+          <tr>
+            <th scope="row">Storage</th>
+            <td>500Gb (Min)</td>
+            <td> 1TB (Max)</td>
+            <td> 1TB (Max)</td>
+            <td> 1TB (Max)</i></td>
+          </tr>
+          <tr>
+            <th scope="row">Processor</th>
+            <td> Intel i5</td>
+            <td> Intel i7</td>
+            <td> Intel i7</td>
+            <td> Intel i7</i></td>
+          </tr>
+          <tr>
+            <th scope="row">MotherBoard</th>
+            <td>  ASUS Prime H310M-E  R2.0 </td>
+            <td> MSI MPG Z490 GAMING PLUS </td>
+            <td> ASUS Pro WS X570-ACE </td>
+            <td>  ASUS ROG Maximus XIII Hero </td>
+          </tr>
+          
+          <tr>
+            <th scope="row">Graphics Card</th>
+            <td> AMD OR RAIZEN </td>
+            <td> NVIDEA </td>
+            <td> AMD </td>
+            <td> AMD </td>
+          </tr>
+          <tr>
+            <th scope="row">Software</th>
+            <td>Microsoft Office Home Or Student </td>
+            <td>Xbox and Gaming bar</td>
+            <td>McAfee Total Protection  Or QuickHeal Total Protection </td>
+            <td>McAfee Total Protection Or QuickHeal Total Protection  </i></td>
+          </tr>
+
+          
+
+
+          <tr>
+            <th scope="row">UseFul links </a> </th>
+            <td class="li">
+              <button class="single-link" onclick="location.href='/product/?categories=3'" style="color:black; background-color:#1c6052;"> Buy Pre-Build</button>
+          </td>
+          <td class="li">
+              <button class="single-link" onclick="location.href='/product/?categories=17'" style="color:black; background-color:#1c6052;"> Buy Pre-Build</button>
+          </td>
+          <td class="li">
+              <button class="single-link" onclick="location.href='/product/?categories=18'" style="color:black; background-color:#1c6052;"> Buy Pre-Build</button>
+          </td>
+          <td class="li">
+              <button class="single-link" onclick="location.href='/product/?categories=1'" style="color:black; background-color:#1c6052;"> Buy Pre-Build</button>
+          </td>
+          
+           
+             
+          </tr>
+      </tbody>
+      
+    </table>
+  </div> 
+  <div style="text-align:left; margin-left:90px;">
+    <h5>Points To Remember:</h5>
+  </div>
+    <div style="text-align:left; margin-left:100px;">
+    <p>1. Please note that these are just examples and the actual choice of motherboard can depend on various factors like specific model of the processor, number of RAM slots required, form factor of the PC case, etc.</p>
+    <p>2. Always make sure to check the compatibility of the motherboard with your other components.</p>
+    <p>3. Also, prices and availability may vary.</p>
+    <p>4. It’s always a good idea to do some research or consult with a professional before making a purchase.</p>
+</div>
+<br>
+
+{% endblock %}

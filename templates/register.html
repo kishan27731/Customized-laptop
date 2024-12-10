@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<head>
+    <style>
+        .abcd{
+            color: green;
+        }
+    </style>
+</head>
+{% endblock %}
+
+{% block body %}
+<div class="login-register-area pt-100px pb-100px">
+    <div class="container">
+        <div class="row">
+            {% for m in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{m}}
+                </div>
+            {% endfor %}
+            <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                <div class="login-register-wrapper"style="color:#8E2C2C;">
+                    <div class="login-register-tab-list nav" style="color:#8E2C2C;">
+                        <a data-bs-toggle="tab">
+                            <h4 style="color:#1c6052;">Sign Up</h4>
+                        </a>
+                    </div>
+                <div class="login-register-wrapper" style="color:#8E2C2C;">
+                    <div class="login-form-container">
+                        <div class="login-register-form">
+                            <form action="{% url 'register' %}" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="username" placeholder="Username" required />
+                                <input type="text" name="fname" placeholder="First Name" required/>
+                                <input type="text" name="lname" placeholder="Last Name" required/>
+                                <input type="integer" name="call" placeholder="Contact" required/>
+                                <input name="email" placeholder="Email" type="email" required/>
+                                <input type="password" name="pass1" placeholder="Password" required/>
+                                <input type="password" name="pass2" placeholder="Password" required/>
+                                <div class="button-box">
+                                    <button type="submit" style="background-color:#1c6052;"><span>Register</span></button>
+                                    <a href="{% url 'login' %}"style="color:#1c6052;"><u>Already  Signed  Up?</u></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

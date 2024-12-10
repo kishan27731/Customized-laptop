@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Generator</title>
+</head>
+<body>
+    <h1>Generate PDF</h1>
+    <form id="pdf-form">
+        <label for="start-date">Start Date:</label><br>
+        <input type="date" id="start-date" name="start-date"><br>
+        <label for="end-date">End Date:</label><br>
+        <input type="date" id="end-date" name="end-date"><br>
+        <input type="submit" value="Generate PDF">
+    </form>
+    <div id="message"></div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custome Report</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% csrf_token %}
+    <h1>Products Report</h1>
+    <h2>From {{ start_date }} to {{ end_date }}</h2>
+    {% for product in products %}
+        <p>
+            <strong>Product Name:</strong> {{ product.name }}<br>
+            <strong>Description:</strong> {{ product.description }}<br>
+            <strong>Price:</strong> {{ product.price }}<br>
+            <strong>Date:</strong> {{ product.date }}
+        </p>
+    {% empty %}
+        <p>No products found in this date range.</p>
+    {% endfor %}
+</body>
+</html>
